@@ -10,6 +10,10 @@
 2. 輸入 **使用者帳號** 與 **密碼**
 3. 點擊 **登入**
 
+<p align="center">
+  <img src="./screenshots/admin_login.png" width="600" alt="管理版登入頁面" />
+</p>
+
 ---
 
 ## 2. 側邊欄功能總覽
