@@ -1,0 +1,49 @@
+erDiagram
+    ADMIN ||--o{ RECEIVING_RECORD : "審核"
+    MOBILE_USER ||--o{ RECEIVING_RECORD : "掃描"
+    RECEIVING_RECORD ||--o{ RECEIVING_ITEM : "包含"
+
+    ADMIN {
+        int id PK
+        string user_id UK
+        string name
+        string email
+        bool is_active
+        bool is_superadmin
+    }
+
+    MOBILE_USER {
+        int id PK
+        string email UK
+        string name
+        bool is_active
+        string created_by
+    }
+
+    RECEIVING_RECORD {
+        int id PK
+        string receiving_no UK
+        string supplier
+        string invoice_no
+        string status
+        text notes
+        int scanned_by FK
+        int reviewed_by FK
+        datetime reviewed_at
+    }
+
+    RECEIVING_ITEM {
+        int id PK
+        int receiving_id FK
+        string supplier
+        string part_no
+        string mpn
+        string lot
+        string dc
+        string qty
+        int qty_number
+        string package_type
+        string box_no
+        string origin
+        json raw_ocr
+    }

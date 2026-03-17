@@ -1,0 +1,20 @@
+flowchart TD
+    A[登入系統] --> B[首頁]
+    B --> C[點擊 掃描收貨]
+    C --> D[拍照/選擇標籤圖片]
+    D --> E{AI 辨識}
+    E --> F[顯示辨識結果]
+    F --> G{結果正確?}
+    G -->|是| H[加入清單]
+    G -->|否| D
+    H --> I{還有標籤要掃?}
+    I -->|是| D
+    I -->|否| J[點擊 提交收貨]
+    J --> K[✓ 提交成功<br/>產生收貨單號]
+    K --> L{繼續?}
+    L -->|是| C
+    L -->|否| B
+
+    style E fill:#3b82f6,color:#fff
+    style K fill:#10b981,color:#fff
+    style G fill:#f59e0b,color:#fff

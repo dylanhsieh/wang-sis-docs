@@ -1,0 +1,29 @@
+graph TB
+    subgraph 使用者端
+        M[📱 行動版<br/>倉儲人員]
+        A[💻 管理版<br/>管理員]
+    end
+
+    subgraph GCP Cloud
+        LB[⚖️ 負載平衡器<br/>SSL + 自訂網域]
+        FE[🖥️ Cloud Run<br/>前端 React/Nginx]
+        BE[⚙️ Cloud Run<br/>後端 FastAPI]
+        DB[(🗄️ Cloud SQL<br/>PostgreSQL)]
+        AI[🤖 Gemini 2.5 Flash Lite<br/>標籤 OCR]
+        SM[🔐 Secret Manager]
+    end
+
+    subgraph 外部服務
+        SG[📧 SendGrid<br/>密碼重設信]
+        CF[🌐 Cloudflare<br/>DNS]
+    end
+
+    M -->|HTTPS| CF
+    A -->|HTTPS| CF
+    CF --> LB
+    LB --> FE
+    FE --> BE
+    BE --> DB
+    BE --> AI
+    BE --> SG
+    BE --> SM

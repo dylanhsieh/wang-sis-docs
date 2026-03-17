@@ -1,0 +1,14 @@
+flowchart TD
+    A[倉儲人員提交收貨] --> B[紀錄出現在收貨管理<br/>狀態: 待審核]
+    B --> C[管理員點擊 檢視]
+    C --> D[檢查項目明細]
+    D --> E{資料正確?}
+    E -->|是| F[點擊 核准入庫]
+    E -->|否| G[填寫退回原因]
+    G --> H[點擊 退回]
+    F --> I[✅ 狀態變更為 已核准<br/>貨品正式入庫]
+    H --> J[❌ 狀態變更為 已退回<br/>通知倉儲人員重新處理]
+
+    style F fill:#10b981,color:#fff
+    style H fill:#ef4444,color:#fff
+    style E fill:#f59e0b,color:#fff

@@ -1,0 +1,10 @@
+flowchart LR
+    IMG[📷 標籤照片] --> S1[第一階段<br/>通用辨識]
+    S1 --> DET{偵測到<br/>已知供應商?}
+    DET -->|是| S2[第二階段<br/>供應商專屬辨識]
+    DET -->|否| OUT1[輸出通用結果]
+    S2 --> OUT2[輸出精確結果]
+
+    style S1 fill:#3b82f6,color:#fff
+    style S2 fill:#10b981,color:#fff
+    style DET fill:#f59e0b,color:#fff

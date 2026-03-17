@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant U as 📱 倉儲人員
+    participant FE as 前端
+    participant BE as 後端 API
+    participant AI as Gemini AI
+    participant DB as 資料庫
+    participant Admin as 💻 管理員
+
+    U->>FE: 1. 拍照/選擇標籤圖片
+    FE->>BE: 2. POST /api/receiving/scan-label
+    BE->>AI: 3. 第一次辨識 (通用prompt)
+    AI-->>BE: 4. 回傳: 偵測到供應商 "SEMIHOW"
+    BE->>BE: 5. 比對供應商規則庫
+    BE->>AI: 6. 第二次辨識 (SEMIHOW專屬prompt)
+    AI-->>BE: 7. 回傳: 精確結構化 JSON
+    BE-->>FE: 8. 辨識結果
+    FE-->>U: 9. 顯示辨識結果供確認
+
+    U->>FE: 10. 確認加入清單
+    Note over U,FE: 可重複掃描多張標籤
+
+    U->>FE: 11. 提交收貨
+    FE->>BE: 12. POST /api/receiving/records
+    FE->>BE: 13. POST /api/receiving/records/{id}/items (每項)
+    BE->>DB: 14. 儲存收貨紀錄 + 項目
+    BE-->>FE: 15. 收貨單號 RXT260312XXXX
+
+    Note over Admin,DB: 管理端即時可見
+
+    Admin->>BE: 16. GET /api/receiving/admin/records
+    BE->>DB: 17. 查詢待審核紀錄
+    Admin->>BE: 18. PUT /api/receiving/admin/records/{id}/review
+    BE->>DB: 19. 更新狀態: approved/rejected
