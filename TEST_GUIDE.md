@@ -86,14 +86,16 @@
 
 ### 3.5 供應商規則管理
 
-> **注意：此功能尚未部署至正式環境，需部署後測試**
-
 左側選單 → **供應商規則**
 
 - [ ] 表格顯示 6 個預設供應商 (PANJIT, CVILUX, SYNC, SEMIHOW, JIEJIE, UPI)
 - [ ] 點擊展開可看到完整 Prompt 內容
 - [ ] 可新增 / 編輯 / 停用 / 刪除規則
 - [ ] **測試遊樂場**：切換分頁 → 上傳標籤圖片 → 顯示 AI 辨識結果 + 匹配規則 + 耗時
+
+<p align="center">
+  <img src="./screenshots/admin_supplier_rules.png" width="700" alt="供應商規則管理" />
+</p>
 
 ---
 
