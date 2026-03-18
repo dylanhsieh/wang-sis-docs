@@ -13,6 +13,7 @@
 | 負載平衡器 | GCP | 自訂網域路由 + SSL 憑證 | $590 |
 | Artifact Registry | GCP | Docker 映像儲存 (~1GB) | $3 |
 | Secret Manager | GCP | 6 組 API 金鑰 | $0 |
+| Cloud Storage | GCP | PDF 文件托管 (Coldline, ~7MB) | $0 |
 | 網路流量 | GCP | 外送流量 (<1GB/月) | $0 |
 | DNS 代管 | Cloudflare | 免費方案 | $0 |
 | 網域名稱 | Cloudflare | dylan-reha-2gether.net | $3 |
